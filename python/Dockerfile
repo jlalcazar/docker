@@ -10,5 +10,23 @@ RUN touch newfile
 
 ##COPY FILES
 COPY script.sh .
-#CMD ["/bin/ls ","-l"] 
-ENTRYPOINT [ "/bin/bash" ]
+COPY index.html .
+
+##ADD FILES
+ADD docs docs
+
+
+##ADD USER
+#ARG user
+#ENV user_docker $user
+#ADD add_user.sh /datos
+#RUN /datos/add_user.sh
+
+#EXPOSE
+RUN apt-get install -y apache2
+EXPOSE 80
+
+#CMD
+ADD entrypoint.sh /datos
+CMD /datos/entrypoint.sh 
+#ENTRYPOINT [ "/bin/bash" ]
