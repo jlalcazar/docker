@@ -10,7 +10,7 @@ RUN touch newfile
 
 ##COPY FILES
 #COPY script.sh .
-COPY index.html .
+#COPY index.html .
 
 ##ADD FILES
 ADD docs docs
