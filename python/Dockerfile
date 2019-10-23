@@ -15,18 +15,16 @@ COPY index.html .
 ##ADD FILES
 ADD docs docs
 
-
-##ADD USER
-#ARG user
-#ENV user_docker $user
-#ADD add_user.sh /datos
-#RUN /datos/add_user.sh
-
 #EXPOSE
 RUN apt-get install -y apache2
 EXPOSE 80
+ADD entrypoint.sh /datos
+
+#VOLUMES
+ADD paginas /var/www/html
+VOLUME ["/var/www/html"]
 
 #CMD
-ADD entrypoint.sh /datos
 CMD /datos/entrypoint.sh 
+
 #ENTRYPOINT [ "/bin/bash" ]
