@@ -9,7 +9,7 @@ RUN touch version && echo 2.0 >>version
 RUN touch newfile
 
 ##COPY FILES
-COPY script.sh .
+#COPY script.sh .
 COPY index.html .
 
 ##ADD FILES
